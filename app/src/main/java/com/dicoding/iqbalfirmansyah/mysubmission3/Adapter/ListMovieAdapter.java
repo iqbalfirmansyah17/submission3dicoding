@@ -1,6 +1,7 @@
 package com.dicoding.iqbalfirmansyah.mysubmission3.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,9 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.dicoding.iqbalfirmansyah.mysubmission3.Activity.DetailActivity;
+import com.dicoding.iqbalfirmansyah.mysubmission3.Listener.CustomOnItemClickListener;
 import com.dicoding.iqbalfirmansyah.mysubmission3.Model.MovieItems;
 import com.dicoding.iqbalfirmansyah.mysubmission3.R;
 
@@ -31,15 +35,6 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         notifyDataSetChanged();
     }
 
-    public void addItem(final MovieItems item) {
-        mData.add(item);
-        notifyDataSetChanged();
-    }
-
-    public void clearData() {
-        mData.clear();
-    }
-
     @NonNull
     @Override
     public MovieViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int position) {
@@ -53,8 +48,18 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         movieViewHolder.tvOverview.setText(mData.get(position).getOverview());
         Glide.with(context)
                 .load(mData.get(position).getPoster())
-                .apply(new RequestOptions().override(55, 55))
+                .apply(new RequestOptions().override(200, 200))
                 .into(movieViewHolder.poster);
+
+        movieViewHolder.itemView.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
+            @Override
+            public void onItemClicked(View view, int position) {
+                Intent mIntent = new Intent(context, DetailActivity.class);
+                mIntent.putExtra("EXTRA_POSITION", position);
+                context.startActivity(mIntent);
+                Toast.makeText(context, "Film : " + mData.get(position).getTitle(), Toast.LENGTH_SHORT).show();
+            }
+        }));
     }
 
     @Override
@@ -67,7 +72,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         TextView tvOverview;
         ImageView poster;
 
-        public MovieViewHolder(@NonNull View itemView) {
+        private MovieViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.tv_title);
             tvOverview = itemView.findViewById(R.id.tv_overview);
