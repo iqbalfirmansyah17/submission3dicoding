@@ -1,25 +1,26 @@
 package com.dicoding.iqbalfirmansyah.mysubmission3.Model;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class MovieItems {
 
-    public int id, poster;
-    public String title, overview, popularity, releaseDate;
+    public int id;
+    public String title, overview, poster, popularity, releaseDate;
 
     public MovieItems(JSONObject object) {
-        try {
-            int id = object.getInt("id");
-            String title = object.getJSONArray("results").getJSONObject(0).getString("title");
-            String overview = object.getJSONArray("results").getJSONObject(0).getString("overview");
-            String poster = object.getJSONArray("results").getJSONObject(0).getString("poster_path");
-            this.id = id;
-            this.title = title;
-            this.overview = overview;
-            this.poster = Integer.parseInt(poster);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            JSONArray jsonArray = object.getJSONArray("results");
+//            JSONObject jsonObject = jsonArray.getJSONObject(0);
+//            String title = jsonObject.getString("title");
+//            String overview = jsonObject.getString("overview");
+//            String poster = jsonObject.getString("poster_path");
+//            this.title = title;
+//            this.overview = overview;
+//            this.poster = poster;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 
     public int getId() {
@@ -30,11 +31,11 @@ public class MovieItems {
         this.id = id;
     }
 
-    public int getPoster() {
+    public String getPoster() {
         return poster;
     }
 
-    public void setPoster(int poster) {
+    public void setPoster(String poster) {
         this.poster = poster;
     }
 

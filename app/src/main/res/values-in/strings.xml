@@ -1,25 +1,25 @@
 <resources>
-    <string name="app_name">Submission 3</string>
+    <string name="app_name">Tugas 3</string>
     <string name="movie_title">Judul Film</string>
-    <string name="overview">OVERVIEW :</string>
+    <string name="overview">SINOPSIS :</string>
     <string name="movie_overview">Deskripsi Film</string>
-    <string name="popularity">POPULARITY :</string>
+    <string name="popularity">POPULARITAS :</string>
     <string name="movie_popularity">Movie Popularity</string>
-    <string name="release_date">RELEASE DATE :</string>
+    <string name="release_date">TANGGAL RILIS :</string>
     <string name="movie_release_date">Movie Release Date</string>
     <string name="cast">CAST :</string>
     <string name="movie_cast">Movie Cast</string>
     <string name="genre">GENRE :</string>
     <string name="movie_genre">Movie Genre</string>
-    <string name="title_tv_series">TV Show</string>
-    <string name="title_movies">Movies</string>
-    <string name="list">List</string>
-    <string name="grid">Grid</string>
+    <string name="title_tv_series">Serial TV</string>
+    <string name="title_movies">Film</string>
+    <string name="list">Daftar</string>
+    <string name="grid">Kotak-kotak</string>
     <string name="with_cardview">CardView</string>
-    <string name="language">Language</string>
+    <string name="language">Bahasa</string>
     <string name="bookmark">Bookmark</string>
     <string name="english">English</string>
     <string name="rusia">Rusia</string>
-    <string name="save_language">Save Language</string>
-    <string name="language_note">The application will be reloaded when saving changes.</string>
+    <string name="save_language">Simpan Bahasa</string>
+    <string name="language_note">Aplikasi akan dimuat ulang ketika menyimpan perubahan.</string>
 </resources>

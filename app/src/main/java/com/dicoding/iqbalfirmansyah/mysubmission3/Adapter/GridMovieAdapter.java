@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,12 +21,12 @@ import com.dicoding.iqbalfirmansyah.mysubmission3.R;
 
 import java.util.ArrayList;
 
-public class ListMovieAdapter extends RecyclerView.Adapter<ListMovieAdapter.MovieViewHolder> {
+public class GridMovieAdapter extends RecyclerView.Adapter<GridMovieAdapter.GridViewHolder> {
 
     private ArrayList<MovieItems> mData = new ArrayList<>();
-    Context context;
+    private Context context;
 
-    public ListMovieAdapter(Context context) {
+    public GridMovieAdapter(Context context) {
         this.context = context;
     }
 
@@ -37,27 +38,34 @@ public class ListMovieAdapter extends RecyclerView.Adapter<ListMovieAdapter.Movi
 
     @NonNull
     @Override
-    public MovieViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int position) {
-        View mView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_row_movies, viewGroup, false);
-        return new MovieViewHolder(mView);
+    public GridViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_movie, parent, false);
+        return new GridViewHolder(mView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MovieViewHolder movieViewHolder, int position) {
-        movieViewHolder.tvTitle.setText(mData.get(position).getTitle());
-        movieViewHolder.tvOverview.setText(mData.get(position).getOverview());
+    public void onBindViewHolder(@NonNull GridViewHolder gridViewHolder, int position) {
         Glide.with(context)
                 .load(mData.get(position).getPoster())
-                .apply(new RequestOptions().override(200, 200))
-                .into(movieViewHolder.poster);
+                .apply(new RequestOptions().override(350, 550))
+                .into(gridViewHolder.imgPoster);
 
-        movieViewHolder.itemView.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
+        gridViewHolder.tvTitle.setText(mData.get(position).getTitle());
+
+        gridViewHolder.itemView.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
             @Override
             public void onItemClicked(View view, int position) {
                 Intent mIntent = new Intent(context, DetailActivity.class);
                 mIntent.putExtra("EXTRA_POSITION", position);
                 context.startActivity(mIntent);
                 Toast.makeText(context, "Film : " + mData.get(position).getTitle(), Toast.LENGTH_SHORT).show();
+            }
+        }));
+
+        gridViewHolder.btnBookmark.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
+            @Override
+            public void onItemClicked(View view, int position) {
+                Toast.makeText(context, "Bookmark " + mData.get(position).getTitle(), Toast.LENGTH_SHORT).show();
             }
         }));
     }
@@ -67,16 +75,16 @@ public class ListMovieAdapter extends RecyclerView.Adapter<ListMovieAdapter.Movi
         return mData.size();
     }
 
-    public class MovieViewHolder extends RecyclerView.ViewHolder {
+    public class GridViewHolder extends RecyclerView.ViewHolder {
+        ImageView imgPoster;
         TextView tvTitle;
-        TextView tvOverview;
-        ImageView poster;
+        Button btnBookmark;
 
-        private MovieViewHolder(@NonNull View itemView) {
+        private GridViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvTitle = itemView.findViewById(R.id.tv_title);
-            tvOverview = itemView.findViewById(R.id.tv_overview);
-            poster = itemView.findViewById(R.id.img_poster);
+            imgPoster = itemView.findViewById(R.id.img_poster_detail);
+            tvTitle = itemView.findViewById(R.id.tv_title_detail);
+            btnBookmark = itemView.findViewById(R.id.btn_set_bookmark);
         }
     }
 }

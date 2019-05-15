@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_layout"
+        android:icon="@drawable/ic_listhead_white_24dp"
+        android:title="Layout"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/action_list"
+                android:icon="@drawable/ic_list_black_24dp"
+                android:title="@string/list"
+                app:showAsAction="always" />
+            <item
+                android:id="@+id/action_grid"
+                android:icon="@drawable/ic_grid_black_24dp"
+                android:title="@string/grid"
+                app:showAsAction="always" />
+            <item
+                android:id="@+id/action_cardview"
+                android:icon="@drawable/ic_customlist_black_24dp"
+                android:title="@string/with_cardview"
+                app:showAsAction="always" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/action_language"
+        android:icon="@drawable/ic_language_white_24dp"
+        android:title="@string/language"
+        app:showAsAction="always"></item>
+</menu>

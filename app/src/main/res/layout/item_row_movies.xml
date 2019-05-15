@@ -7,8 +7,8 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_poster"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:layout_marginEnd="@dimen/activity_horizontal_margin" />
@@ -20,16 +20,19 @@
         android:layout_marginBottom="8dp"
         android:layout_toEndOf="@id/img_poster"
         android:text="@string/movie_title"
-        android:textSize="16sp" />
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="@string/fab_transformation_scrim_behavior"/>
 
     <TextView
         android:id="@+id/tv_overview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_title"
-        android:layout_marginBottom="8dp"
         android:layout_toEndOf="@id/img_poster"
         android:maxLines="2"
         android:text="@string/movie_overview"
         android:textSize="16sp" />
+
+
 </RelativeLayout>
