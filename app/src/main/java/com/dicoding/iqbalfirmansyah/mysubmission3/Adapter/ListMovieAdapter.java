@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class ListMovieAdapter extends RecyclerView.Adapter<ListMovieAdapter.MovieViewHolder> {
 
     private ArrayList<MovieItems> mData = new ArrayList<>();
-    Context context;
+    private Context context;
 
     public ListMovieAdapter(Context context) {
         this.context = context;

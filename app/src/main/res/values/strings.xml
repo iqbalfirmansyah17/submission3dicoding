@@ -15,11 +15,10 @@
     <string name="title_movies">Movies</string>
     <string name="list">List</string>
     <string name="grid">Grid</string>
-    <string name="with_cardview">CardView</string>
     <string name="language">Language</string>
     <string name="bookmark">Bookmark</string>
     <string name="english">English</string>
-    <string name="rusia">Rusia</string>
+    <string name="indonesia">Indonesia</string>
     <string name="save_language">Save Language</string>
     <string name="language_note">The application will be reloaded when saving changes.</string>
 </resources>

@@ -1,8 +1,7 @@
 package com.dicoding.iqbalfirmansyah.mysubmission3.Activity;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.res.Configuration;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -22,34 +21,25 @@ public class MainActivity extends AppCompatActivity {
 
     public static int ID_TAB = 0;
 
-    public static String EXTRA_LOCAL = null;
+    public static int mode = 1;
+
+    public static String EXTRA_LOCAL = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (EXTRA_LOCAL != null) {
-            PreferenceActivity preferenceActivity = new PreferenceActivity();
-            preferenceActivity.setLocale(this, EXTRA_LOCAL);
-        }
-        getSupportActionBar().setTitle(R.string.app_name);
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(R.string.app_name);
+        }
+
+        BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         if (savedInstanceState == null) {
             navigation.setSelectedItemId(R.id.navigation_movies);
         }
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration configuration) {
-        if (EXTRA_LOCAL != null) {
-            PreferenceActivity preferenceActivity = new PreferenceActivity();
-            preferenceActivity.setLocale(this, EXTRA_LOCAL);
-        }
-        super.onConfigurationChanged(configuration);
     }
 
     @Override
@@ -62,14 +52,14 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_language:
-                Intent intent = new Intent(this, PreferenceActivity.class);
-                startActivity(intent);
+                Intent mIntent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
+                startActivity(mIntent);
                 return true;
             case R.id.action_list:
+                mode = 1;
                 return false;
             case R.id.action_grid:
-                return false;
-            case R.id.action_cardview:
+                mode = 2;
                 return false;
         }
         return super.onOptionsItemSelected(item);

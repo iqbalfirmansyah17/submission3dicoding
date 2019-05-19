@@ -18,7 +18,7 @@ public class Connection {
                 .getState() == NetworkInfo.State.CONNECTED)) {
             return true;
         } else {
-            Toast.makeText(context, "Tidak ada koneksi", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Tidak ada koneksi internet", Toast.LENGTH_SHORT).show();
             return false;
         }
     }

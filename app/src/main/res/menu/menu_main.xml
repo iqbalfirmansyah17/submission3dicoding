@@ -17,11 +17,6 @@
                 android:icon="@drawable/ic_grid_black_24dp"
                 android:title="@string/grid"
                 app:showAsAction="always" />
-            <item
-                android:id="@+id/action_cardview"
-                android:icon="@drawable/ic_customlist_black_24dp"
-                android:title="@string/with_cardview"
-                app:showAsAction="always" />
         </menu>
     </item>
     <item

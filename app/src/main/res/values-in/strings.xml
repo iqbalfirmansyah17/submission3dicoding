@@ -15,11 +15,10 @@
     <string name="title_movies">Film</string>
     <string name="list">Daftar</string>
     <string name="grid">Kotak-kotak</string>
-    <string name="with_cardview">CardView</string>
     <string name="language">Bahasa</string>
     <string name="bookmark">Bookmark</string>
     <string name="english">English</string>
-    <string name="rusia">Rusia</string>
+    <string name="indonesia">Indonesia</string>
     <string name="save_language">Simpan Bahasa</string>
     <string name="language_note">Aplikasi akan dimuat ulang ketika menyimpan perubahan.</string>
 </resources>
